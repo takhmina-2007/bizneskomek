@@ -6,11 +6,26 @@
   <title>Кеңесші Бот</title>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
-
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">SHOB DAMY</h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Басты бет</a></li>
+          <li><a href="instruct.html">Инструктаж</a></li>
+          <li><a href="chatbot.html">Кеңесші бот</a></li>
+          <li><a href="kalkulator.html">Калькулятор</a></li>
+          <li><a href="sertifikat.html">Сертификат</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <section class="container" style="padding: 2rem 1rem;">
     <h2>🤖 Кеңесші Бот</h2>
-    <p>Төмендегі 15 сұраққа жауап берсең, біз саған нақты кеңес береміз.</p>
+    <p>15 сұраққа жауап беріңіз — біз сіздің жағдайыңызға қарай кеңес ұсынамыз.</p>
 
     <form id="botForm">
       <ol>
@@ -18,24 +33,73 @@
           <label><input type="radio" name="q1" value="yes" required> Иә</label>
           <label><input type="radio" name="q1" value="no"> Жоқ</label>
         </li>
+
         <li>Бизнесіңіз тіркелген бе?<br/>
           <label><input type="radio" name="q2" value="yes" required> Иә</label>
           <label><input type="radio" name="q2" value="no"> Жоқ</label>
         </li>
-        <li>Салық режимі туралы біліміңіз бар ма?</li>
-        <li>Бухгалтерлік есепті кім жүргізеді?</li>
-        <li>Сіз Kaspi QR пайдаланасыз ба?</li>
-        <li>Сіз онлайн сатасыз ба?</li>
-        <li>Инстаграм парақшаңыз бар ма?</li>
-        <li>Грантқа өтініш беріп көрдіңіз бе?</li>
-        <li>Субсидия алдыңыз ба?</li>
-        <li>Мемлекеттік бағдарламалар туралы біліміңіз бар ма?</li>
-        <li>Бизнес жоспар жасадыңыз ба?</li>
-        <li>Қанша клиентіңіз бар?</li>
-        <li>Айлық табысыңыз орта есеппен қанша?</li>
-        <li>Маркетинг құралдарын пайдаланасыз ба?</li>
-        <li>Бәсекелестеріңіз кім?</li>
+
+        <li>Салық режимін таңдадыңыз ба?<br/>
+          <label><input type="radio" name="q3" value="yes" required> Иә</label>
+          <label><input type="radio" name="q3" value="no"> Жоқ</label>
+        </li>
+
+        <li>Kaspi QR қосылған ба?<br/>
+          <label><input type="radio" name="q4" value="yes" required> Иә</label>
+          <label><input type="radio" name="q4" value="no"> Жоқ</label>
+        </li>
+
+        <li>Instagram парақшаңыз бар ма?<br/>
+          <label><input type="radio" name="q5" value="yes" required> Иә</label>
+          <label><input type="radio" name="q5" value="no"> Жоқ</label>
+        </li>
+
+        <li>Онлайн төлем қабылдайсыз ба?<br/>
+          <label><input type="radio" name="q6" value="yes" required> Иә</label>
+          <label><input type="radio" name="q6" value="no"> Жоқ</label>
+        </li>
+
+        <li>Грантқа өтініш беріп көрдіңіз бе?<br/>
+          <label><input type="radio" name="q7" value="yes" required> Иә</label>
+          <label><input type="radio" name="q7" value="no"> Жоқ</label>
+        </li>
+
+        <li>Субсидия/жеңілдік алғансыз ба?<br/>
+          <label><input type="radio" name="q8" value="yes" required> Иә</label>
+          <label><input type="radio" name="q8" value="no"> Жоқ</label>
+        </li>
+
+        <li>Есептілікті кім жүргізеді?<br/>
+          <input type="text" name="q9" placeholder="Мысалы: Өзім / Бухгалтер" required />
+        </li>
+
+        <li>Айлық табысыңыз қанша?<br/>
+          <input type="number" name="q10" placeholder="Мысалы: 500000" required />
+        </li>
+
+        <li>Негізгі өніміңіз немесе қызметіңіз қандай?<br/>
+          <input type="text" name="q11" placeholder="Мысалы: балмұздақ сату" required />
+        </li>
+
+        <li>Нарықта бәсекелестеріңіз бар ма?<br/>
+          <label><input type="radio" name="q12" value="yes" required> Иә</label>
+          <label><input type="radio" name="q12" value="no"> Жоқ</label>
+        </li>
+
+        <li>Бизнес жоспар жасадыңыз ба?<br/>
+          <label><input type="radio" name="q13" value="yes" required> Иә</label>
+          <label><input type="radio" name="q13" value="no"> Жоқ</label>
+        </li>
+
+        <li>Қай аймақта жұмыс істейсіз?<br/>
+          <input type="text" name="q14" placeholder="Мысалы: Алматы" required />
+        </li>
+
+        <li>Қандай маркетинг каналын пайдаланасыз?<br/>
+          <input type="text" name="q15" placeholder="Мысалы: Instagram, TikTok" required />
+        </li>
       </ol>
+
       <button type="submit" class="btn">✅ Кеңес алу</button>
     </form>
 
@@ -50,13 +114,22 @@
 
       const hasBusiness = formData.get("q1") === "yes";
       const registered = formData.get("q2") === "yes";
+      const hasQR = formData.get("q4") === "yes";
+      const hasInstagram = formData.get("q5") === "yes";
+      const hasGrant = formData.get("q7") === "yes";
+      const hasPlan = formData.get("q13") === "yes";
 
       if (!hasBusiness) {
-        advice = "Сізге алдымен кәсіп бастау бойынша инструктаж бөлімін өту ұсынылады.";
+        advice = "Алдымен кәсіп ашу бойынша инструктаждан өтіңіз.";
       } else if (!registered) {
-        advice = "Бизнесіңізді тіркеу үшін Egov арқылы жеке кәсіпкерлік ашыңыз.";
+        advice = "Egov арқылы Жеке кәсіпкерлік ашып тіркеуді бастаңыз.";
       } else {
-        advice = "Сізге салық режимін анықтап, Kaspi QR мен Instagram арқылы сату мүмкіндігін арттыру ұсынылады.";
+        advice = "Сіз тіркелгенсіз. ";
+        if (!hasQR) advice += "Kaspi QR қосу ұсынылады. ";
+        if (!hasInstagram) advice += "Instagram арқылы жарнама жасау ұсынылады. ";
+        if (!hasPlan) advice += "Бизнес жоспарыңызды нақтылаңыз. ";
+        if (!hasGrant) advice += "Грант алу мүмкіндіктерін зерттеңіз. ";
+        advice += "Маркетингті күшейтіп, ROI калькулятор арқылы тиімділікті тексеріңіз.";
       }
 
       document.getElementById("botAnswer").innerHTML = `
