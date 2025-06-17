@@ -1,0 +1,21 @@
+/* Google Fonts: Inter */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fbfc;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+  color: #3399cc;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header.header {
+  bac

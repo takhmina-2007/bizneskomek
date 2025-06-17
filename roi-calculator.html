@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROI Калькулятор</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">SHOB DAMY</h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Басты бет</a></li>
+          <li><a href="instruct.html">Инструктаж</a></li>
+          <li><a href="chatbot.html">Кеңесші бот</a></li>
+          <li><a href="kalkulator.html">Калькулятор</a></li>
+          <li><a href="sertifikat.html">Сертификат</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container" style="padding: 2rem 1rem;">
+    <h2>🧮 ROI Калькулятор</h2>
+    <p>Бизнесіңіздің тиімділігін есептеңіз. Түсетін табыс пен шығынды енгізіңіз.</p>
+
+    <div style="max-width: 400px; margin-top: 2rem;">
+      <label>Түсетін табыс (₸):</label>
+      <input type="number" id="revenue" placeholder="Мысалы: 500000" class="input" />
+
+      <label>Шығын көлемі (₸):</label>
+      <input type="number" id="cost" placeholder="Мысалы: 300000" class="input" />
+
+      <button onclick="calculateROI()" class="btn" style="margin-top: 1rem;">Есептеу</button>
+    </div>
+
+    <div id="roi-result" style="margin-top: 2rem; font-weight: 600;"></div>
+  </section>
+</body>
+</html>

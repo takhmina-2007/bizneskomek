@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Сертификат алу</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">SHOB DAMY</h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Басты бет</a></li>
+          <li><a href="instruct.html">Инструктаж</a></li>
+          <li><a href="chatbot.html">Кеңесші бот</a></li>
+          <li><a href="kalkulator.html">Калькулятор</a></li>
+          <li><a href="sertifikat.html">Сертификат</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container" style="padding: 2rem 1rem;">
+    <h2>🎓 Сертификат алу</h2>
+    <p>Инструктажды аяқтаған соң аты-жөніңізді латын әріптерімен енгізіп, сертификат жүктей аласыз.</p>
+
+    <input type="text" id="fullName" placeholder="Мысалы: Aidana Akhmetova" class="input" />
+    <button onclick="generateCertificate()" class="btn">📥 Сертификатты жүктеу</button>
+  </section>
+
+  <script>
+    async function generateCertificate() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ orientation: 'landscape' });
+
+      const name = document.getElementById("fullName").value.trim();
+      if (!name) {
+        alert("Аты-жөніңізді енгізіңіз.");
+        return;
+      }
+
+      const date = new Date().toLocaleDateString('en-GB');
+      const rand = Math.floor(1000 + Math.random() * 9000);
+      const certId = `SD-${new Date().toISOString().slice(0,10).replace(/-/g, '')}-${rand}`;
+      const certURL = `https://shobdamy.kz/cert?id=${certId}`;
+
+      // Сертификат дизайны
+      doc.setFillColor(245, 250, 255);
+      doc.rect(10, 10, 270, 170, 'F');
+      doc.setDrawColor(51, 153, 204);
+      doc.rect(10, 10, 270, 170);
+
+      doc.setFontSize(28);
+      doc.setTextColor(51, 102, 153);
+      doc.text("CERTIFICATE", 140, 40, null, null, "center");
+
+      doc.setFontSize(14);
+      doc.setTextColor(0, 0, 0);
+      doc.text(`This certifies that ${name}`, 140, 60, null, null, "center");
+      doc.text("has successfully completed the SHOB DAMY Entrepreneurship Instruction.", 140, 75, null, null, "center");
+      doc.text(`Date: ${date}`, 140, 95, null, null, "center");
+      doc.text(`Certificate ID: ${certId}`, 140, 110, null, null, "center");
+      doc.text("www.shobdamy.kz", 140, 125, null, null, "center");
+
+      // QR-код
+      const qr = qrcode(0, 'L');
+      qr.addData(certURL);
+      qr.make();
+      const qrDataUrl = qr.createDataURL();
+
+      const img = new Image();
+      img.src = qrDataUrl;
+      img.onload = function () {
+        doc.addImage(img, 'PNG', 235, 20, 30, 30);
+        doc.save("certificate.pdf");
+      };
+    }
+  </script>
+</body>
+</html>

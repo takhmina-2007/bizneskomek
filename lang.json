@@ -1,0 +1,19 @@
+{
+  "kk": {
+    "home_title": "Басты бет",
+    "main_header": "ШОБ-ты нөлден бастау",
+    "main_subheader": "Нұсқаулық + Telegram ботпен бизнесіңді баста",
+    "btn_instruction": "Инструктажды оқу",
+    "btn_bot": "Telegram-ботқа өту"
+"btn_contact": "Байланыс"
+
+  },
+  "ru": {
+    "home_title": "Главная страница",
+    "main_header": "Начни бизнес с нуля",
+    "main_subheader": "Инструкция + Telegram-бот для запуска",
+    "btn_instruction": "Читать инструктаж",
+    "btn_bot": "Перейти в бот"
+"btn_contact": "Контакты"
+  }
+}

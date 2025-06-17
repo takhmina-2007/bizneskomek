@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кеңесші Бот</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">SHOB DAMY</h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Басты бет</a></li>
+          <li><a href="instruct.html">Инструктаж</a></li>
+          <li><a href="chatbot.html">Кеңесші бот</a></li>
+          <li><a href="kalkulator.html">Калькулятор</a></li>
+          <li><a href="sertifikat.html">Сертификат</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container" style="padding: 2rem 1rem;">
+    <h2>🤖 Кеңесші Бот</h2>
+    <p>Төмендегі 15 сұраққа жауап берсең, біз саған нақты кеңес береміз.</p>
+
+    <form id="botForm">
+      <ol>
+        <li>Сізде қазіргі уақытта бизнес бар ма?<br/>
+          <label><input type="radio" name="q1" value="yes" required> Иә</label>
+          <label><input type="radio" name="q1" value="no"> Жоқ</label>
+        </li>
+        <li>Бизнесіңіз тіркелген бе?<br/>
+          <label><input type="radio" name="q2" value="yes" required> Иә</label>
+          <label><input type="radio" name="q2" value="no"> Жоқ</label>
+        </li>
+        <li>Салық режимі туралы біліміңіз бар ма?</li>
+        <li>Бухгалтерлік есепті кім жүргізеді?</li>
+        <li>Сіз Kaspi QR пайдаланасыз ба?</li>
+        <li>Сіз онлайн сатасыз ба?</li>
+        <li>Инстаграм парақшаңыз бар ма?</li>
+        <li>Грантқа өтініш беріп көрдіңіз бе?</li>
+        <li>Субсидия алдыңыз ба?</li>
+        <li>Мемлекеттік бағдарламалар туралы біліміңіз бар ма?</li>
+        <li>Бизнес жоспар жасадыңыз ба?</li>
+        <li>Қанша клиентіңіз бар?</li>
+        <li>Айлық табысыңыз орта есеппен қанша?</li>
+        <li>Маркетинг құралдарын пайдаланасыз ба?</li>
+        <li>Бәсекелестеріңіз кім?</li>
+      </ol>
+      <button type="submit" class="btn">✅ Кеңес алу</button>
+    </form>
+
+    <div id="botAnswer" style="margin-top: 2rem;"></div>
+  </section>
+
+  <script>
+    document.getElementById("botForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      let advice = "";
+
+      const hasBusiness = formData.get("q1") === "yes";
+      const registered = formData.get("q2") === "yes";
+
+      if (!hasBusiness) {
+        advice = "Сізге алдымен кәсіп бастау бойынша инструктаж бөлімін өту ұсынылады.";
+      } else if (!registered) {
+        advice = "Бизнесіңізді тіркеу үшін Egov арқылы жеке кәсіпкерлік ашыңыз.";
+      } else {
+        advice = "Сізге салық режимін анықтап, Kaspi QR мен Instagram арқылы сату мүмкіндігін арттыру ұсынылады.";
+      }
+
+      document.getElementById("botAnswer").innerHTML = `
+        <div class="card">
+          <h3>🔍 Кеңес:</h3>
+          <p>${advice}</p>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
